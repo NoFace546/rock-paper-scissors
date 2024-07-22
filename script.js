@@ -14,8 +14,6 @@ function getHumanChoice(){
     return humanChoice
 }
 
-
-
 function playRound(playerChoice, computerChoice){
     const humanChoice = playerChoice.toLowerCase()
 
@@ -61,12 +59,20 @@ function playRound(playerChoice, computerChoice){
 }
 }
 
-let humanScore = 0, computerScore = 0
+function playGame(){
+    let humanScore = 0, computerScore = 0
 
-const computerChoice = getComputerChoice()
-const humanChoice = getHumanChoice()
 
-playRound(humanChoice, computerChoice)
+    const computerChoice = getComputerChoice()
+    const humanChoice = getHumanChoice()
 
-console.log(`You play: ${humanChoice}, AI plays ${computerChoice}
+    playRound(humanChoice, computerChoice)
+
+
+
+    console.log(`You play: ${humanChoice}, AI plays ${computerChoice}
     Your Score: ${humanScore}, AI Score: ${computerScore}`)
+
+}
+
+playGame()
