@@ -16,41 +16,57 @@ function getHumanChoice(){
 
 
 
-function playRound(humanChoice, computerChoice){
-    const humanChoice = humanChoice.lowerCase()
+function playRound(playerChoice, computerChoice){
+    const humanChoice = playerChoice.toLowerCase()
 
-    // Human and AI picks the same
-    if (humanChoice == computerChoice){
-        return "tie"
-    }
+           
+    if (humanChoice == computerChoice){                 //First check to see if they are the same
+        humanScore++
+        computerScore++
+        return
+    } else {
 
     // Human picks Rock
     if (humanChoice == "rock"){
         if (computerChoice == "scissors") {
-            return "win"
+            humanScore++
+            return
         } else {
-            return "lose"
+            computerScore++
+            return
         }
     }
 
     // Human picks Paper
     if (humanChoice == "paper"){
         if (computerChoice == "rock") {
-            return "win"
+            humanScore++
+            return
         } else {
-            return "lose"
+            computerScore++
+            return
         }
     }
 
     // Human picks sicssors
     if (humanChoice == "scissors"){
         if (computerChoice == "paper") {
-            return "win"
+            humanScore++
+            return 
         } else {
-            return "lose"
+            computerScore
+            return
         }
     }
+}
 }
 
 let humanScore = 0, computerScore = 0
 
+const computerChoice = getComputerChoice()
+const humanChoice = getHumanChoice()
+
+playRound(humanChoice, computerChoice)
+
+console.log(`You play: ${humanChoice}, AI plays ${computerChoice}
+    Your Score: ${humanScore}, AI Score: ${computerScore}`)
