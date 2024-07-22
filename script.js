@@ -52,27 +52,41 @@ function playRound(playerChoice, computerChoice){
             humanScore++
             return 
         } else {
-            computerScore
+            computerScore++
             return
         }
     }
 }
 }
 
-function playGame(){
-    let humanScore = 0, computerScore = 0
-
-
-    const computerChoice = getComputerChoice()
-    const humanChoice = getHumanChoice()
-
-    playRound(humanChoice, computerChoice)
-
-
-
-    console.log(`You play: ${humanChoice}, AI plays ${computerChoice}
-    Your Score: ${humanScore}, AI Score: ${computerScore}`)
-
+function checkWinner(playerScore, computerScore){
+    if (playerScore == computerScore){
+        console.log("It's a tie!")
+    } else if(playerScore > computerScore){
+        console.log("You win! Congratulations!")
+    } else {
+        console.log("You loose! Try again.")
+    }
 }
 
+function playGame(){
+
+
+    // Loop that continues the game 5 times
+    for (let i = 0; i < 5; i++){
+        const computerChoice = getComputerChoice()
+        const humanChoice = getHumanChoice()
+
+        playRound(humanChoice, computerChoice)
+
+
+
+        console.log(`You play: ${humanChoice}, AI plays ${computerChoice}
+        Your Score: ${humanScore}, AI Score: ${computerScore}`)
+    }
+    checkWinner(humanScore, computerScore)
+}
+
+
+let humanScore = 0, computerScore = 0
 playGame()
