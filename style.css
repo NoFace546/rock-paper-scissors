@@ -16,17 +16,17 @@ h1 {
 }
 
 #results{
-    width: 750px;
-    height: 500px;
+    width: 800px;
+    height: 700px;
     margin: 60px auto;
-    border: solid;
-    border-color: black;
-    border-width: 3px;
 
     display: flex;
 
 }
-
+#playerArea, #computerArea{
+    display: flex;
+    flex-direction: column;
+}
 #playerArea{
     background-color: red;
     flex: 1;
@@ -43,4 +43,14 @@ h2{
     display: flex;
     justify-content: center;
     font-size: 36px;
+}
+
+.image {
+    display: flex;
+    align-items: center;
+}
+
+.score{
+    margin-top: auto;
+    margin-bottom: 0;
 }

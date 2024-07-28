@@ -3,6 +3,8 @@ const playerArea = document.querySelector("#playerArea");
 const computerArea = document.querySelector("#computerArea");
 const playerImage = document.querySelector("#playerImage");
 const computerImage = document.querySelector("#computerImage")
+const playerAreaScore = document.querySelector("#playerAreaScore");
+const computerAreaScore = document.querySelector("#computerAreaScore")
 
 
 function getComputerChoice(){
@@ -27,45 +29,41 @@ function playRound(playerChoice, computerChoice){
     createSVG(playerChoice,playerImage)
     createSVG(computerChoice,computerImage)
            
-    if (humanChoice == computerChoice){                 //First check to see if they are the same
+    if (playerChoice == computerChoice){                 //First check to see if they are the same
         humanScore++
         computerScore++
-        return
     } else {
+        // Human picks Rock
+        if (playerChoice == "rock"){
+            if (computerChoice == "scissors") {
+                humanScore++
 
-    // Human picks Rock
-    if (humanChoice == "rock"){
-        if (computerChoice == "scissors") {
-            humanScore++
-            return
-        } else {
-            computerScore++
-            return
+            } else {
+                computerScore++
+ 
+            }
+        }
+
+        // Human picks Paper
+        if (playerChoice == "paper"){
+            if (computerChoice == "rock") {
+                humanScore++
+            } else {
+                computerScore++
+            }
+        }
+
+        // Human picks sicssors
+        if (playerChoice == "scissors"){
+            if (computerChoice == "paper") {
+                humanScore++
+            } else {
+                computerScore++
+            }
         }
     }
-
-    // Human picks Paper
-    if (humanChoice == "paper"){
-        if (computerChoice == "rock") {
-            humanScore++
-            return
-        } else {
-            computerScore++
-            return
-        }
-    }
-
-    // Human picks sicssors
-    if (humanChoice == "scissors"){
-        if (computerChoice == "paper") {
-            humanScore++
-            return 
-        } else {
-            computerScore++
-            return
-        }
-    }
-}
+    playerAreaScore.textContent=humanScore
+    computerAreaScore.textContent=computerScore
 }
 
 function checkWinner(playerScore, computerScore){
