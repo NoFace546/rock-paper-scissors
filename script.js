@@ -1,4 +1,7 @@
 const buttonArea = document.querySelector("#buttonArea")
+const playerArea = document.querySelector("#playerArea")
+const computerArea = document.querySelector("#computerArea")
+const rpsSVG = docuemnt.querySelectorALL(".image")
 
 
 function getComputerChoice(){
@@ -84,6 +87,10 @@ function playGame(humanChoice){
 
 buttonArea.addEventListener("click", (e) => {
     let humanChoice =   e.target.id
+    if (humanChoice == "buttonArea"){
+        return
+    } 
+
     playGame(humanChoice)
 
 

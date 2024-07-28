@@ -1,0 +1,46 @@
+h1 {
+    text-align: center;
+}
+
+#buttonArea{
+
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#buttonArea button {
+    padding: 20px;
+    width: 200px;
+
+}
+
+#results{
+    width: 750px;
+    height: 500px;
+    margin: 60px auto;
+    border: solid;
+    border-color: black;
+    border-width: 3px;
+
+    display: flex;
+
+}
+
+#playerArea{
+    background-color: red;
+    flex: 1;
+}
+#computerArea{
+    background-color: blue;
+    flex: 1;
+}
+h2{
+    color: white;
+    margin: 0;
+    height: 150px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 36px;
+}
