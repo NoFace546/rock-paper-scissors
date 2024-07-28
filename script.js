@@ -1,7 +1,8 @@
-const buttonArea = document.querySelector("#buttonArea")
-const playerArea = document.querySelector("#playerArea")
-const computerArea = document.querySelector("#computerArea")
-const rpsSVG = docuemnt.querySelectorALL(".image")
+const buttonArea = document.querySelector("#buttonArea");
+const playerArea = document.querySelector("#playerArea");
+const computerArea = document.querySelector("#computerArea");
+const playerImage = document.querySelector("#playerImage");
+const computerImage = document.querySelector("#computerImage")
 
 
 function getComputerChoice(){
@@ -15,10 +16,16 @@ function getComputerChoice(){
     }
 }
 
+function createSVG(choice, area){
+    area.innerHTML = ""
+    const SVG = document.createElement("img")
+    SVG.src = `images/${choice}-svg.svg`
+    area.appendChild(SVG)
+}
 
 function playRound(playerChoice, computerChoice){
-    const humanChoice = playerChoice.toLowerCase()
-
+    createSVG(playerChoice,playerImage)
+    createSVG(computerChoice,computerImage)
            
     if (humanChoice == computerChoice){                 //First check to see if they are the same
         humanScore++
