@@ -64,16 +64,31 @@ function playRound(playerChoice, computerChoice){
     }
     playerAreaScore.textContent=humanScore
     computerAreaScore.textContent=computerScore
+    rounds++
+    if (rounds == 5){
+        checkWinner(humanScore, computerScore)
+    }
 }
 
 function checkWinner(playerScore, computerScore){
+    buttonArea.innerHTML = ""
+    const span = document.createElement("h1")
+    const restartButton = document.createElement(("button"))
+    restartButton.textContent ="Restart";
+    restartButton.id = "restart";
+    restartButton.addEventListener("click", () => {
+        window.location.reload();
+    })
+
     if (playerScore == computerScore){
-        console.log("It's a tie!")
+        span.textContent="It's a tie!"
     } else if(playerScore > computerScore){
-        console.log("You win! Congratulations!")
+        span.textContent = "You win! Congratulations!"
     } else {
-        console.log("You loose! Try again.")
+        span.textContent = "You loose! Try again."
     }
+    buttonArea.appendChild(span)
+    buttonArea.appendChild(restartButton)
 }
 
 function playGame(humanChoice){
@@ -92,7 +107,7 @@ function playGame(humanChoice){
 
 buttonArea.addEventListener("click", (e) => {
     let humanChoice =   e.target.id
-    if (humanChoice == "buttonArea"){
+    if (humanChoice == "buttonArea" || humanChoice == "restart"){
         return
     } 
 
@@ -102,4 +117,4 @@ buttonArea.addEventListener("click", (e) => {
     
 })
 
-let humanScore = 0, computerScore = 0
+let humanScore = 0, computerScore = 0, rounds = 0
