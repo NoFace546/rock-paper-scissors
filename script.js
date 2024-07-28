@@ -1,3 +1,6 @@
+const buttonArea = document.querySelector("#buttonArea")
+
+
 function getComputerChoice(){
     let number = Math.floor(Math.random() * 3)
     if (number == 1){
@@ -9,10 +12,6 @@ function getComputerChoice(){
     }
 }
 
-function getHumanChoice(){
-    let humanChoice = prompt("Rock, Paper or Scissors?")
-    return humanChoice
-}
 
 function playRound(playerChoice, computerChoice){
     const humanChoice = playerChoice.toLowerCase()
@@ -69,24 +68,26 @@ function checkWinner(playerScore, computerScore){
     }
 }
 
-function playGame(){
+function playGame(humanChoice){
 
+    const computerChoice = getComputerChoice()
 
-    // Loop that continues the game 5 times
-    for (let i = 0; i < 5; i++){
-        const computerChoice = getComputerChoice()
-        const humanChoice = getHumanChoice()
-
-        playRound(humanChoice, computerChoice)
+    playRound(humanChoice, computerChoice)
 
 
 
-        console.log(`You play: ${humanChoice}, AI plays ${computerChoice}
-        Your Score: ${humanScore}, AI Score: ${computerScore}`)
-    }
-    checkWinner(humanScore, computerScore)
+    console.log(`You play: ${humanChoice}, AI plays ${computerChoice}
+    Your Score: ${humanScore}, AI Score: ${computerScore}`)
+
+    //checkWinner(humanScore, computerScore)
 }
 
+buttonArea.addEventListener("click", (e) => {
+    let humanChoice =   e.target.id
+    playGame(humanChoice)
+
+
+    
+})
 
 let humanScore = 0, computerScore = 0
-playGame()
